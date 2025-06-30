@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoices & Payments - ClinicSync</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>Invoices & Payments</h1>
+        <p>View your billing history and manage payment statuses.</p>
+      </div>
+    </section>
+
+    <section class="invoices-payments-section">
+      <div class="container">
+        <div class="invoice-list-container">
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th>Invoice ID</th>
+                <th>Date</th>
+                <th>Patient Name</th>
+                <th>Service</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#INV001</td>
+                <td>2024-06-28</td>
+                <td>John Doe</td>
+                <td>General Checkup</td>
+                <td>$85.00</td>
+                <td class="status-paid">Paid</td>
+                <td class="action-buttons">
+                  <button onclick="printInvoice('INV001')">
+                    <i class="fas fa-print"></i> Print
+                  </button>
+                  <button onclick="downloadInvoice('INV001')">
+                    <i class="fas fa-download"></i> Download
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#INV002</td>
+                <td>2024-06-25</td>
+                <td>Jane Smith</td>
+                <td>Dental Cleaning</td>
+                <td>$75.00</td>
+                <td class="status-pending">Pending</td>
+                <td class="action-buttons">
+                  <button onclick="printInvoice('INV002')">
+                    <i class="fas fa-print"></i> Print
+                  </button>
+                  <button onclick="downloadInvoice('INV002')">
+                    <i class="fas fa-download"></i> Download
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#INV003</td>
+                <td>2024-06-20</td>
+                <td>Alice Johnson</td>
+                <td>Pediatric Care</td>
+                <td>$90.00</td>
+                <td class="status-paid">Paid</td>
+                <td class="action-buttons">
+                  <button onclick="printInvoice('INV003')">
+                    <i class="fas fa-print"></i> Print
+                  </button>
+                  <button onclick="downloadInvoice('INV003')">
+                    <i class="fas fa-download"></i> Download
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#INV004</td>
+                <td>2024-06-18</td>
+                <td>Bob Williams</td>
+                <td>Dermatology Consultation</td>
+                <td>$90.00</td>
+                <td class="status-paid">Paid</td>
+                <td class="action-buttons">
+                  <button onclick="printInvoice('INV004')">
+                    <i class="fas fa-print"></i> Print
+                  </button>
+                  <button onclick="downloadInvoice('INV004')">
+                    <i class="fas fa-download"></i> Download
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#INV005</td>
+                <td>2024-06-10</td>
+                <td>Charlie Brown</td>
+                <td>Physical Therapy</td>
+                <td>$80.00</td>
+                <td class="status-pending">Pending</td>
+                <td class="action-buttons">
+                  <button onclick="printInvoice('INV005')">
+                    <i class="fas fa-print"></i> Print
+                  </button>
+                  <button onclick="downloadInvoice('INV005')">
+                    <i class="fas fa-download"></i> Download
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function printInvoice(invoiceId) {
+        alert(`Printing invoice ${invoiceId}... (This is a demo)`);
+        // In a real application, you'd trigger a print dialogue or generate a printable view.
+      }
+
+      function downloadInvoice(invoiceId) {
+        alert(`Downloading invoice ${invoiceId}... (This is a demo)`);
+        // In a real application, you'd trigger a file download (e.g., PDF).
+      }
+    </script>
+  </body>
+</html>

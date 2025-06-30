@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - ClinicSync</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>Admin Dashboard</h1>
+        <p>Overview of clinic performance and key statistics.</p>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="container">
+        <h2>Key Metrics</h2>
+        <div class="key-metrics-grid">
+          <div class="metric-card">
+            <i class="fas fa-users icon"></i>
+            <h3>Total Patients</h3>
+            <div class="value">1250</div>
+          </div>
+          <div class="metric-card">
+            <i class="fas fa-calendar-day icon"></i>
+            <h3>Today's Appointments</h3>
+            <div class="value">45</div>
+          </div>
+          <div class="metric-card">
+            <i class="fas fa-calendar-week icon"></i>
+            <h3>This Week's Appointments</h3>
+            <div class="value">280</div>
+          </div>
+          <div class="metric-card">
+            <i class="fas fa-dollar-sign icon"></i>
+            <h3>Monthly Revenue</h3>
+            <div class="value">$15,000</div>
+          </div>
+        </div>
+
+        <h2>Performance Charts</h2>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3>Appointments Per Day (Last 7 Days)</h3>
+            <div class="chart-container">
+              <canvas id="appointmentsPerDayChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Most Active Doctors</h3>
+            <div class="chart-container">
+              <canvas id="mostActiveDoctorChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Revenue Per Service</h3>
+            <div class="chart-container">
+              <canvas id="revenuePerServiceChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Appointments Per Day Chart
+        const apptsCtx = document
+          .getElementById("appointmentsPerDayChart")
+          .getContext("2d");
+        new Chart(apptsCtx, {
+          type: "line",
+          data: {
+            labels: [
+              "Jun 24",
+              "Jun 25",
+              "Jun 26",
+              "Jun 27",
+              "Jun 28",
+              "Jun 29",
+              "Jun 30",
+            ],
+            datasets: [
+              {
+                label: "Appointments",
+                data: [30, 42, 38, 55, 48, 45, 50],
+                borderColor: "#4b9cd3",
+                backgroundColor: "rgba(75, 156, 211, 0.2)",
+                fill: true,
+                tension: 0.3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              title: {
+                display: false,
+                text: "Appointments Per Day",
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: "Number of Appointments",
+                },
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: "Date",
+                },
+              },
+            },
+          },
+        });
+
+        // Most Active Doctor Chart
+        const activeDocCtx = document
+          .getElementById("mostActiveDoctorChart")
+          .getContext("2d");
+        new Chart(activeDocCtx, {
+          type: "bar",
+          data: {
+            labels: [
+              "Dr. Chen",
+              "Dr. Carter",
+              "Dr. Davis",
+              "Dr. Green",
+              "Dr. Brown",
+            ],
+            datasets: [
+              {
+                label: "Appointments",
+                data: [75, 60, 50, 45, 30],
+                backgroundColor: [
+                  "#4b9cd3",
+                  "#aed6f1",
+                  "#2874a6",
+                  "#7ac0e3",
+                  "#1a5276",
+                ],
+                borderColor: [
+                  "#4b9cd3",
+                  "#aed6f1",
+                  "#2874a6",
+                  "#7ac0e3",
+                  "#1a5276",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              title: {
+                display: false,
+                text: "Most Active Doctors",
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: "Appointments Handled",
+                },
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: "Doctor",
+                },
+              },
+            },
+          },
+        });
+
+        // Revenue Per Service Chart
+        const revenueServiceCtx = document
+          .getElementById("revenuePerServiceChart")
+          .getContext("2d");
+        new Chart(revenueServiceCtx, {
+          type: "pie",
+          data: {
+            labels: [
+              "General Checkup",
+              "Dental Cleaning",
+              "Pediatric Care",
+              "Dermatology",
+              "Physical Therapy",
+            ],
+            datasets: [
+              {
+                label: "Revenue",
+                data: [3500, 2500, 3000, 2000, 4000],
+                backgroundColor: [
+                  "#4b9cd3",
+                  "#aed6f1",
+                  "#2874a6",
+                  "#7ac0e3",
+                  "#1a5276",
+                ],
+                hoverOffset: 4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "right",
+                labels: {
+                  font: {
+                    size: 14,
+                  },
+                },
+              },
+              title: {
+                display: false,
+                text: "Revenue Per Service",
+              },
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

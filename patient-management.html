@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Management - ClinicSync</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>Patient Management</h1>
+        <p>
+          Manage patient information, records, and appointments efficiently.
+        </p>
+      </div>
+    </section>
+
+    <section class="patient-management-section">
+      <div class="container">
+        <div class="controls-bar">
+          <input
+            type="text"
+            id="patientSearch"
+            placeholder="Search by name or phone..."
+          />
+          <button id="addPatientBtn">
+            <i class="fas fa-user-plus"></i> Add New Patient
+          </button>
+        </div>
+
+        <div class="patient-table-container">
+          <table class="patient-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="patientListBody">
+              <tr>
+                <td>Alice Johnson</td>
+                <td>1985-04-20</td>
+                <td>Female</td>
+                <td>(111) 222-3333</td>
+                <td>456 Oak Ave, Townsville</td>
+                <td class="action-buttons">
+                  <button
+                    class="view-btn"
+                    onclick="viewPatientDetails('Alice Johnson')"
+                  >
+                    <i class="fas fa-eye"></i> View
+                  </button>
+                  <button
+                    class="edit-btn"
+                    onclick="editPatient('Alice Johnson')"
+                  >
+                    <i class="fas fa-edit"></i> Edit
+                  </button>
+                  <button
+                    class="delete-btn"
+                    onclick="deletePatient('Alice Johnson')"
+                  >
+                    <i class="fas fa-trash-alt"></i> Delete
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Bob Williams</td>
+                <td>1970-11-01</td>
+                <td>Male</td>
+                <td>(444) 555-6666</td>
+                <td>789 Pine St, Villagetown</td>
+                <td class="action-buttons">
+                  <button
+                    class="view-btn"
+                    onclick="viewPatientDetails('Bob Williams')"
+                  >
+                    <i class="fas fa-eye"></i> View
+                  </button>
+                  <button
+                    class="edit-btn"
+                    onclick="editPatient('Bob Williams')"
+                  >
+                    <i class="fas fa-edit"></i> Edit
+                  </button>
+                  <button
+                    class="delete-btn"
+                    onclick="deletePatient('Bob Williams')"
+                  >
+                    <i class="fas fa-trash-alt"></i> Delete
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Charlie Brown</td>
+                <td>1995-07-25</td>
+                <td>Male</td>
+                <td>(777) 888-9999</td>
+                <td>101 Maple Rd, Cityville</td>
+                <td class="action-buttons">
+                  <button
+                    class="view-btn"
+                    onclick="viewPatientDetails('Charlie Brown')"
+                  >
+                    <i class="fas fa-eye"></i> View
+                  </button>
+                  <button
+                    class="edit-btn"
+                    onclick="editPatient('Charlie Brown')"
+                  >
+                    <i class="fas fa-edit"></i> Edit
+                  </button>
+                  <button
+                    class="delete-btn"
+                    onclick="deletePatient('Charlie Brown')"
+                  >
+                    <i class="fas fa-trash-alt"></i> Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("patientSearch");
+        const patientListBody = document.getElementById("patientListBody");
+        const addPatientBtn = document.getElementById("addPatientBtn");
+
+        // --- Dummy Data (In a real app, this would come from a database) ---
+        let patients = [
+          {
+            name: "Alice Johnson",
+            dob: "1985-04-20",
+            gender: "Female",
+            phone: "(111) 222-3333",
+            address: "456 Oak Ave, Townsville",
+            email: "alice@example.com",
+          },
+          {
+            name: "Bob Williams",
+            dob: "1970-11-01",
+            gender: "Male",
+            phone: "(444) 555-6666",
+            address: "789 Pine St, Villagetown",
+            email: "bob@example.com",
+          },
+          {
+            name: "Charlie Brown",
+            dob: "1995-07-25",
+            gender: "Male",
+            phone: "(777) 888-9999",
+            address: "101 Maple Rd, Cityville",
+            email: "charlie@example.com",
+          },
+          {
+            name: "Diana Prince",
+            dob: "1988-03-10",
+            gender: "Female",
+            phone: "(999) 000-1111",
+            address: "222 Lasso Ln, Wonder City",
+            email: "diana@example.com",
+          },
+          {
+            name: "Eve Adams",
+            dob: "2000-01-15",
+            gender: "Female",
+            phone: "(222) 333-4444",
+            address: "333 Apple St, Garden Town",
+            email: "eve@example.com",
+          },
+        ];
+
+        function renderPatients(filterTerm = "") {
+          patientListBody.innerHTML = "";
+          const filteredPatients = patients.filter(
+            (patient) =>
+              patient.name.toLowerCase().includes(filterTerm.toLowerCase()) ||
+              patient.phone.includes(filterTerm)
+          );
+
+          filteredPatients.forEach((patient) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                        <td>${patient.name}</td>
+                        <td>${patient.dob}</td>
+                        <td>${patient.gender}</td>
+                        <td>${patient.phone}</td>
+                        <td>${patient.address}</td>
+                        <td class="action-buttons">
+                            <button class="view-btn" onclick="viewPatientDetails('${patient.name}')"><i class="fas fa-eye"></i> View</button>
+                            <button class="edit-btn" onclick="editPatient('${patient.name}')"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="delete-btn" onclick="deletePatient('${patient.name}')"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </td>
+                    `;
+            patientListBody.appendChild(row);
+          });
+        }
+
+        // Initial render
+        renderPatients();
+
+        // Search functionality
+        searchInput.addEventListener("keyup", (event) => {
+          renderPatients(event.target.value);
+        });
+
+        // Add Patient button (placeholder)
+        addPatientBtn.addEventListener("click", () => {
+          alert("Add New Patient functionality will be implemented here!");
+          // In a real application, this would open a modal or redirect to a new form
+        });
+
+        // Global functions (accessible from HTML onclick)
+        window.viewPatientDetails = function (patientName) {
+          const patient = patients.find((p) => p.name === patientName);
+          if (patient) {
+            alert(
+              `Patient Details:\nName: ${patient.name}\nDOB: ${
+                patient.dob
+              }\nGender: ${patient.gender}\nPhone: ${patient.phone}\nAddress: ${
+                patient.address
+              }\nEmail: ${patient.email || "N/A"}`
+            );
+            // In a real app, redirect to patient-profile.html or open a detailed modal
+          }
+        };
+
+        window.editPatient = function (patientName) {
+          alert(
+            `Edit functionality for ${patientName} will be implemented here!`
+          );
+          // In a real application, populate a form with patient data for editing
+        };
+
+        window.deletePatient = function (patientName) {
+          if (
+            confirm(`Are you sure you want to delete ${patientName}'s record?`)
+          ) {
+            patients = patients.filter((p) => p.name !== patientName);
+            renderPatients(searchInput.value); // Re-render the list
+            alert(`${patientName}'s record deleted.`);
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

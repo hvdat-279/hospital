@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClinicSync - Private Clinic Management System</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Welcome to ClinicSync</h1>
+          <p>
+            Streamline your healthcare experience with our advanced clinic
+            management system.
+          </p>
+          <button onclick="window.location.href='book-appointment.html'">
+            Book Appointment
+          </button>
+        </div>
+        <div class="hero-image">
+          <img src="./imgs/home/hero_pic-removebg-preview.png" alt="hero" />
+        </div>
+      </div>
+    </section>
+
+    <section class="about container" id="about-section">
+      <i class="fas fa-heartbeat"></i>
+      <h2>About ClinicSync</h2>
+      <p>
+        ClinicSync is a modern clinic management system designed to simplify
+        appointment scheduling, patient record management, and doctor
+        coordination. Our platform ensures seamless communication between
+        patients and healthcare providers, improving efficiency and patient care
+        quality.
+      </p>
+    </section>
+
+    <section class="features" id="features-section">
+      <div class="container">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Online Booking</h3>
+            <p>Easily book appointments online with real-time availability.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-file-medical"></i>
+            <h3>Digital Records</h3>
+            <p>Securely store and access patient records digitally.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-clock"></i>
+            <h3>Doctor Schedules</h3>
+            <p>View and manage doctor schedules effortlessly.</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-user-md"></i>
+            <h3>Patient Portal</h3>
+            <p>Empower patients with their own portal for health management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="container">
+        <h2>How It Works</h2>
+        <div class="step-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Sign Up</h3>
+            <p>Create an account for patients or providers.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Book Appointment</h3>
+            <p>Choose a doctor and time slot that suits you.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Manage Records</h3>
+            <p>Access and update patient records securely.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Stay Connected</h3>
+            <p>Receive reminders and updates via the portal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="doctors" id="doctors-section">
+      <div class="container">
+        <h2>Our Doctors</h2>
+        <div class="doctor-grid">
+          <div class="doctor-card">
+            <img src="./imgs/home/avatar1.jpg" alt="Dr. John Smith" />
+            <h3>Dr. John Smith</h3>
+            <p>Cardiology</p>
+          </div>
+          <div class="doctor-card">
+            <img src="./imgs/home/avatar2.jpg" alt="Dr. Emily Johnson" />
+            <h3>Dr. Emily Johnson</h3>
+            <p>Pediatrics</p>
+          </div>
+          <div class="doctor-card">
+            <img src="./imgs/home/avatar3.jpg" alt="Dr. Michael Lee" />
+            <h3>Dr. Michael Lee</h3>
+            <p>Orthopedics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p>
+              "ClinicSync made booking appointments so easy and hassle-free!"
+            </p>
+            <p class="author">Sarah M.</p>
+          </div>
+          <div class="testimonial-card">
+            <p>
+              "The patient portal is fantastic for keeping track of my medical
+              records."
+            </p>
+            <p class="author">James T.</p>
+          </div>
+          <div class="testimonial-card">
+            <p>
+              "The system is user-friendly and has improved our clinic's
+              efficiency."
+            </p>
+            <p class="author">Dr. Anna K.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Basic interactivity for the Book Appointment button
+      document
+        .querySelector(".hero-text button")
+        .addEventListener("click", () => {
+          // This button now directly links to the booking page
+          // alert("Redirecting to appointment booking page...");
+        });
+    </script>
+  </body>
+</html>

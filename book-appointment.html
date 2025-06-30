@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment - ClinicSync</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>Book Your Appointment</h1>
+        <p>
+          Easily schedule your visit with our expert doctors for the service you
+          need.
+        </p>
+      </div>
+    </section>
+
+    <section class="booking-form-section">
+      <div class="booking-form-card">
+        <h2>Appointment Details</h2>
+        <form id="appointmentForm">
+          <div class="form-group">
+            <label for="patientName">Patient Name:</label>
+            <input
+              type="text"
+              id="patientName"
+              name="patientName"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="doctorSelect">Select Doctor:</label>
+            <select id="doctorSelect" name="doctor" required>
+              <option value="">-- Choose a Doctor --</option>
+              <option value="Dr. Alice Chen - Cardiology">
+                Dr. Alice Chen - Cardiology
+              </option>
+              <option value="Dr. Ben Carter - Pediatrics">
+                Dr. Ben Carter - Pediatrics
+              </option>
+              <option value="Dr. Sarah Davis - Orthopedics">
+                Dr. Sarah Davis - Orthopedics
+              </option>
+              <option value="Dr. Emily Green - Dermatology">
+                Dr. Emily Green - Dermatology
+              </option>
+              <option value="Dr. Michael Brown - General Medicine">
+                Dr. Michael Brown - General Medicine
+              </option>
+              <option value="Dr. Sophia Lee - Neurology">
+                Dr. Sophia Lee - Neurology
+              </option>
+              <option value="Dr. David Wilson - Ophthalmology">
+                Dr. David Wilson - Ophthalmology
+              </option>
+              <option value="Dr. Olivia White - General Medicine">
+                Dr. Olivia White - General Medicine
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceSelect">Select Service:</label>
+            <select id="serviceSelect" name="service" required>
+              <option value="">-- Choose a Service --</option>
+              <option value="General Checkup">General Checkup</option>
+              <option value="Dental Cleaning">Dental Cleaning</option>
+              <option value="Pediatric Care">Pediatric Care</option>
+              <option value="Dermatology Consultation">
+                Dermatology Consultation
+              </option>
+              <option value="Physical Therapy">Physical Therapy</option>
+              <option value="Eye Exam">Eye Exam</option>
+              <option value="Vaccinations">Vaccinations</option>
+              <option value="Nutritional Counseling">
+                Nutritional Counseling
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="appointmentDate">Preferred Date:</label>
+            <input
+              type="date"
+              id="appointmentDate"
+              name="appointmentDate"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="appointmentTime">Preferred Time:</label>
+            <input
+              type="time"
+              id="appointmentTime"
+              name="appointmentTime"
+              required
+            />
+          </div>
+
+          <button type="submit" class="submit-btn">Confirm Appointment</button>
+        </form>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("appointmentForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent actual form submission
+
+          // Get form values
+          const patientName = document.getElementById("patientName").value;
+          const doctor = document.getElementById("doctorSelect").value;
+          const service = document.getElementById("serviceSelect").value;
+          const date = document.getElementById("appointmentDate").value;
+          const time = document.getElementById("appointmentTime").value;
+
+          // Basic validation
+          if (!patientName || !doctor || !service || !date || !time) {
+            alert("Please fill in all fields to book your appointment.");
+            return;
+          }
+
+          // Display a confirmation message (replace with actual submission logic later)
+          alert(
+            `Appointment Confirmed!\n\nPatient: ${patientName}\nDoctor: ${doctor}\nService: ${service}\nDate: ${date}\nTime: ${time}\n\nThank you for choosing ClinicSync!`
+          );
+
+          // Optionally, clear the form after submission
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

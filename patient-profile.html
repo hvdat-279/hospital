@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - ClinicSync</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>My Profile</h1>
+        <p>View and update your personal and contact information.</p>
+      </div>
+    </section>
+
+    <section class="patient-personal-profile-section">
+      <div class="container">
+        <div class="personal-profile-card">
+          <h2>Personal Information</h2>
+          <form class="profile-form" id="profileForm">
+            <div class="form-group">
+              <label for="fullName">Full Name:</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value="John Doe"
+                disabled
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="dob">Date of Birth:</label>
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                value="1990-05-15"
+                disabled
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender" disabled required>
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number:</label>
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                value="(123) 456-7890"
+                disabled
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value="789 Clinic Blvd, Health City"
+                disabled
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value="john.doe@example.com"
+                disabled
+                required
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="button" id="editBtn" class="edit-btn">
+                <i class="fas fa-edit"></i> Edit Profile
+              </button>
+              <button
+                type="submit"
+                id="saveBtn"
+                class="save-btn"
+                style="display: none"
+              >
+                <i class="fas fa-save"></i> Save Changes
+              </button>
+              <button
+                type="button"
+                id="cancelBtn"
+                class="cancel-btn"
+                style="display: none"
+              >
+                <i class="fas fa-times"></i> Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const formInputs = document.querySelectorAll(
+          "#profileForm input, #profileForm select"
+        );
+        const editBtn = document.getElementById("editBtn");
+        const saveBtn = document.getElementById("saveBtn");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const profileForm = document.getElementById("profileForm");
+
+        // Store original values to revert on cancel
+        const originalValues = {};
+        formInputs.forEach((input) => {
+          originalValues[input.id] = input.value;
+        });
+
+        function toggleEditMode(enable) {
+          formInputs.forEach((input) => {
+            input.disabled = !enable;
+          });
+          editBtn.style.display = enable ? "none" : "inline-block";
+          saveBtn.style.display = enable ? "inline-block" : "none";
+          cancelBtn.style.display = enable ? "inline-block" : "none";
+        }
+
+        editBtn.addEventListener("click", () => toggleEditMode(true));
+
+        cancelBtn.addEventListener("click", () => {
+          // Revert to original values
+          formInputs.forEach((input) => {
+            input.value = originalValues[input.id];
+          });
+          toggleEditMode(false);
+        });
+
+        profileForm.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent actual form submission
+
+          // In a real application, send updated data to the server
+          const updatedData = {};
+          formInputs.forEach((input) => {
+            updatedData[input.name] = input.value;
+          });
+
+          console.log("Updated Profile Data:", updatedData);
+          alert("Profile updated successfully! (This is a demo)");
+
+          // Update original values
+          formInputs.forEach((input) => {
+            originalValues[input.id] = input.value;
+          });
+
+          toggleEditMode(false); // Disable edit mode after saving
+        });
+      });
+    </script>
+  </body>
+</html>

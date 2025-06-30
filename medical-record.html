@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Medical Record - ClinicSync</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>Patient Medical Record</h1>
+        <p>
+          Access your complete medical history, past appointments, and
+          prescriptions.
+        </p>
+      </div>
+    </section>
+
+    <section class="patient-profile-section">
+      <div class="container">
+        <div class="profile-card">
+          <h2>Patient Profile</h2>
+          <div class="profile-info-grid">
+            <div class="info-item">
+              <strong>Full Name:</strong> <span>John Doe</span>
+            </div>
+            <div class="info-item">
+              <strong>Date of Birth:</strong> <span>1990-05-15</span>
+            </div>
+            <div class="info-item">
+              <strong>Gender:</strong> <span>Male</span>
+            </div>
+            <div class="info-item">
+              <strong>Phone:</strong> <span>(123) 456-7890</span>
+            </div>
+            <div class="info-item">
+              <strong>Email:</strong> <span>john.doe@example.com</span>
+            </div>
+            <div class="info-item">
+              <strong>Blood Type:</strong> <span>A+</span>
+            </div>
+          </div>
+          <button class="edit-profile-btn">
+            <i class="fas fa-edit"></i> Edit Profile
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="past-appointments-section">
+      <div class="container">
+        <h2>Past Appointments</h2>
+        <div class="appointment-list">
+          <div class="appointment-card">
+            <div class="card-header">
+              <h3>Appointment on 2024-03-10</h3>
+              <span class="status completed">Completed</span>
+            </div>
+            <div class="card-body">
+              <div class="detail-item">
+                <strong>Doctor:</strong>
+                <span>Dr. Alice Chen (Cardiology)</span>
+              </div>
+              <div class="detail-item">
+                <strong>Diagnosis:</strong> <span>Mild Hypertension</span>
+              </div>
+              <div class="detail-item prescription-details">
+                <strong>Prescription:</strong>
+                <p>
+                  - Lisinopril 10mg (once daily)<br />
+                  - Dietary and exercise recommendations
+                </p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="download-btn">
+                <i class="fas fa-download"></i> Download Prescription
+              </button>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            <div class="card-header">
+              <h3>Appointment on 2023-11-22</h3>
+              <span class="status completed">Completed</span>
+            </div>
+            <div class="card-body">
+              <div class="detail-item">
+                <strong>Doctor:</strong>
+                <span>Dr. Ben Carter (Pediatrics)</span>
+              </div>
+              <div class="detail-item">
+                <strong>Diagnosis:</strong> <span>Common Cold</span>
+              </div>
+              <div class="detail-item prescription-details">
+                <strong>Prescription:</strong>
+                <p>
+                  - Paracetamol 500mg (as needed for fever)<br />
+                  - Rest and fluids
+                </p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="download-btn">
+                <i class="fas fa-download"></i> Download Prescription
+              </button>
+            </div>
+          </div>
+
+          <div class="appointment-card">
+            <div class="card-header">
+              <h3>Appointment on 2023-08-01</h3>
+              <span class="status completed">Completed</span>
+            </div>
+            <div class="card-body">
+              <div class="detail-item">
+                <strong>Doctor:</strong>
+                <span>Dr. Sarah Davis (Orthopedics)</span>
+              </div>
+              <div class="detail-item">
+                <strong>Diagnosis:</strong> <span>Ankle Sprain</span>
+              </div>
+              <div class="detail-item prescription-details">
+                <strong>Prescription:</strong>
+                <p>
+                  - Ibuprofen 400mg (three times daily)<br />
+                  - R.I.C.E. protocol (Rest, Ice, Compression, Elevation)<br />
+                  - Referral for physical therapy
+                </p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="download-btn">
+                <i class="fas fa-download"></i> Download Prescription
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

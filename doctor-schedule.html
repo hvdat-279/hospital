@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Schedule - ClinicSync</title>
+    <link
+      rel="icon"
+      href="./imgs/home/logo-removebg-preview.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container container">
+        <div class="logo">
+          <img
+            src="./imgs/home/logo-removebg-preview.png"
+            alt="ClinicSync Logo"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+          <a href="book-appointment.html">Book Appointment</a>
+          <a href="medical-record.html">Medical Record</a>
+          <a href="patient-management.html">Patient Management</a>
+          <a href="admin-stats.html">Admin Stats</a>
+          <a href="invoices-payments.html">Invoices</a>
+          <a href="index.html#footer-contact">Contact</a>
+          <a href="doctor-schedule.html">Doctor Schedule</a>
+          <a href="patient-profile.html">Patient Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <div class="container">
+        <h1>Doctor Schedule</h1>
+        <p>View your weekly appointments and manage your availability.</p>
+      </div>
+    </section>
+
+    <section class="doctor-schedule-section">
+      <div class="container">
+        <div class="schedule-header">
+          <h2>Dr. Alice Chen's Schedule</h2>
+          <div class="date-nav">
+            <button id="prevWeekBtn">
+              <i class="fas fa-chevron-left"></i> Previous Week
+            </button>
+            <span class="date-range" id="currentDateRange"
+              >Jul 01 - Jul 07, 2025</span
+            >
+            <button id="nextWeekBtn">
+              Next Week <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="schedule-grid-container">
+          <div class="schedule-grid" id="scheduleGrid">
+            <div class="day-header">Time</div>
+            <div class="day-header">Mon</div>
+            <div class="day-header">Tue</div>
+            <div class="day-header">Wed</div>
+            <div class="day-header">Thu</div>
+            <div class="day-header">Fri</div>
+            <div class="day-header">Sat</div>
+            <div class="day-header">Sun</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer-contact">
+      <div class="footer-container container">
+        <div>
+          <h3>Contact Us</h3>
+          <p>Email: info@clinicsync.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <p>Address: 123 Health St, Wellness City</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about-section">About</a>
+          <a href="services.html#services-section">Services</a>
+          <a href="doctors.html#doctor-listing-section">Doctors</a>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 ClinicSync. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scheduleGrid = document.getElementById("scheduleGrid");
+        const currentDateRangeSpan =
+          document.getElementById("currentDateRange");
+        const prevWeekBtn = document.getElementById("prevWeekBtn");
+        const nextWeekBtn = document.getElementById("nextWeekBtn");
+
+        // Current week start (example: assuming current week starts on Monday, July 1st, 2025)
+        let currentWeekStart = new Date("2025-06-30T00:00:00"); // Monday for 30th June - 6th July
+
+        // --- Dummy Appointment Data (In a real app, fetched from backend) ---
+        const appointmentsData = [
+          // Example appointments for Dr. Alice Chen
+          {
+            date: "2025-06-30",
+            time: "09:00",
+            patient: "Patient A",
+            service: "General Checkup",
+          },
+          {
+            date: "2025-06-30",
+            time: "11:00",
+            patient: "Patient B",
+            service: "Follow-up",
+          },
+          {
+            date: "2025-07-01",
+            time: "10:30",
+            patient: "Patient C",
+            service: "Cardiology Consult",
+          },
+          {
+            date: "2025-07-01",
+            time: "14:00",
+            patient: "Patient D",
+            service: "ECG Review",
+          },
+          {
+            date: "2025-07-02",
+            time: "09:00",
+            patient: "Patient E",
+            service: "General Checkup",
+          },
+          {
+            date: "2025-07-03",
+            time: "11:30",
+            patient: "Patient F",
+            service: "Blood Test Review",
+          },
+          {
+            date: "2025-07-04",
+            time: "15:00",
+            patient: "Patient G",
+            service: "General Checkup",
+          },
+          // Add more appointments for different days/times/doctors if needed
+        ];
+
+        const timeSlots = [
+          "08:00",
+          "08:30",
+          "09:00",
+          "09:30",
+          "10:00",
+          "10:30",
+          "11:00",
+          "11:30",
+          "13:00",
+          "13:30",
+          "14:00",
+          "14:30",
+          "15:00",
+          "15:30",
+          "16:00",
+          "16:30",
+          "17:00",
+        ];
+
+        function formatDate(date) {
+          const options = { month: "short", day: "numeric", year: "numeric" };
+          return date.toLocaleDateString("en-US", options);
+        }
+
+        function getDayOfWeek(date) {
+          const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+          return days[date.getDay()];
+        }
+
+        function renderSchedule() {
+          // Clear existing schedule (except headers)
+          while (scheduleGrid.children.length > 8) {
+            // 8 includes the initial day headers
+            scheduleGrid.removeChild(scheduleGrid.lastChild);
+          }
+
+          const days = [];
+          for (let i = 0; i < 7; i++) {
+            const day = new Date(currentWeekStart);
+            day.setDate(currentWeekStart.getDate() + i);
+            days.push(day);
+          }
+
+          // Update date range display
+          const weekEnd = new Date(currentWeekStart);
+          weekEnd.setDate(currentWeekStart.getDate() + 6);
+          currentDateRangeSpan.textContent = `${formatDate(
+            currentWeekStart
+          )} - ${formatDate(weekEnd)}`;
+
+          timeSlots.forEach((time) => {
+            const timeHeader = document.createElement("div");
+            timeHeader.classList.add("time-slot-header");
+            timeHeader.textContent = time;
+            scheduleGrid.appendChild(timeHeader);
+
+            days.forEach((day) => {
+              const cell = document.createElement("div");
+              cell.classList.add("appointment-cell");
+              cell.classList.add("empty-slot"); // Default to empty
+
+              const dayFormatted = day.toISOString().split("T")[0]; // YYYY-MM-DD
+
+              // Find appointments for this day and time
+              const relevantAppointments = appointmentsData.filter(
+                (appt) => appt.date === dayFormatted && appt.time === time
+              );
+
+              if (relevantAppointments.length > 0) {
+                cell.classList.remove("empty-slot");
+                relevantAppointments.forEach((appt) => {
+                  const apptCard = document.createElement("div");
+                  apptCard.classList.add("appointment-card");
+                  apptCard.innerHTML = `
+                                    <span class="patient-name">${appt.patient}</span>
+                                    <span class="service">${appt.service}</span>
+                                `;
+                  apptCard.title = `Patient: ${appt.patient}\nService: ${appt.service}\nTime: ${appt.time}`;
+                  apptCard.onclick = () =>
+                    alert(
+                      `Appointment Details:\nPatient: ${appt.patient}\nService: ${appt.service}\nTime: ${appt.time} on ${appt.date}`
+                    );
+                  cell.appendChild(apptCard);
+                });
+              }
+              scheduleGrid.appendChild(cell);
+            });
+          });
+        }
+
+        prevWeekBtn.addEventListener("click", () => {
+          currentWeekStart.setDate(currentWeekStart.getDate() - 7);
+          renderSchedule();
+        });
+
+        nextWeekBtn.addEventListener("click", () => {
+          currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+          renderSchedule();
+        });
+
+        // Initial render
+        renderSchedule();
+      });
+    </script>
+  </body>
+</html>
